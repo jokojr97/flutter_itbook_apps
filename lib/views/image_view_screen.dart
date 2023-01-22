@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ImageViewScreen extends StatelessWidget {
   const ImageViewScreen({super.key, required this.url});
@@ -15,7 +13,7 @@ class ImageViewScreen extends StatelessWidget {
             url,
             height: 300,
           ),
-          BackButton(),
+          const BackButton(),
         ],
       )),
     );

@@ -19,8 +19,8 @@ class _BookListPageState extends State<BookListPage> {
     var url = Uri.https('api.itbook.store', '1.0/new');
     var response =
         await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
+    // print('Response status: ${response.statusCode}');
+    // print('Response body: ${response.body}');
 
     if (response.statusCode == 200) {
       final jsonBookList = jsonDecode(response.body);
@@ -33,7 +33,6 @@ class _BookListPageState extends State<BookListPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchBookAPI();
   }
@@ -42,11 +41,11 @@ class _BookListPageState extends State<BookListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Book App")),
+        title: const Center(child: Text("Book App")),
       ),
       body: Container(
         child: bookList == null
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : ListView.builder(
