@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, prefer_interpolation_to_compose_strings
+
 import 'package:book_app/controllers/book_controller.dart';
 import 'package:book_app/views/image_view_screen.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +27,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("Detail Book")),
+          title: const Center(child: Text("Detail Book")),
         ),
         body: Consumer<BookController>(builder: (context, contoller, child) {
           return bookController!.detailBook == null
@@ -33,7 +35,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                   child: CircularProgressIndicator(),
                 )
               : Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -137,42 +139,41 @@ class _DetailBookPageState extends State<DetailBookPage> {
                       const SizedBox(height: 15),
                       Text(
                         bookController!.detailBook!.desc!,
-                        style: TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 12),
                       ),
                       const SizedBox(height: 15),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            "Year: " + bookController!.detailBook!.year!,
-                            style: TextStyle(fontSize: 12),
+                            "Year: ${bookController!.detailBook!.year!}",
+                            style: const TextStyle(fontSize: 12),
                           ),
                           Text(
-                            "ISBN" + bookController!.detailBook!.isbn13!,
-                            style: TextStyle(fontSize: 12),
+                            "ISBN${bookController!.detailBook!.isbn13!}",
+                            style: const TextStyle(fontSize: 12),
                           ),
                           Text(
-                            bookController!.detailBook!.pages! + " pages",
-                            style: TextStyle(fontSize: 12),
+                            "${bookController!.detailBook!.pages!} pages",
+                            style: const TextStyle(fontSize: 12),
                           ),
                           Text(
-                            "Publisher: " +
-                                bookController!.detailBook!.publisher!,
-                            style: TextStyle(fontSize: 12),
+                            "Publisher: ${bookController!.detailBook!.publisher!}",
+                            style: const TextStyle(fontSize: 12),
                           ),
                           Text(
                             "Language: " +
                                 bookController!.detailBook!.language!,
-                            style: TextStyle(fontSize: 12),
+                            style: const TextStyle(fontSize: 12),
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Consumer<BookController>(
                           builder: (context, controller, child) {
                         return bookController!.similarBooks == null
-                            ? Center(child: CircularProgressIndicator())
-                            : Container(
+                            ? const Center(child: CircularProgressIndicator())
+                            : SizedBox(
                                 height: 120,
                                 child: ListView.builder(
                                   // shrinkWrap: true,
@@ -184,8 +185,8 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                     final currentSimilarBook = bookController!
                                         .similarBooks!.books![index];
                                     return Padding(
-                                      padding: EdgeInsets.all(5),
-                                      child: Container(
+                                      padding: const EdgeInsets.all(5),
+                                      child: SizedBox(
                                         width: 100,
                                         child: Column(
                                           children: [
@@ -198,7 +199,8 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                                 currentSimilarBook.title!,
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,
-                                                style: TextStyle(fontSize: 12),
+                                                style: const TextStyle(
+                                                    fontSize: 12),
                                               ),
                                             )
                                           ],

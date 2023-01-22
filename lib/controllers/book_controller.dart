@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:book_app/models/book_list_response.dart';
-import 'package:book_app/views/detail_book_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -30,7 +29,7 @@ class BookController extends ChangeNotifier {
   BookDetailResponse? detailBook;
   fetchDetailBooksAPI(isbn) async {
     // var url = Uri.https('api.itbook.store/1.0/new');
-    var url = Uri.https('api.itbook.store', '1.0/books/${isbn}');
+    var url = Uri.https('api.itbook.store', '1.0/books/$isbn');
     var response =
         await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
     if (response.statusCode == 200) {
@@ -46,7 +45,7 @@ class BookController extends ChangeNotifier {
   BookListResponse? similarBooks;
   fetchSimilarBooksAPI(String title) async {
     // var url = Uri.https('api.itbook.store/1.0/new');
-    var url = Uri.https('api.itbook.store', '1.0/search/${title}');
+    var url = Uri.https('api.itbook.store', '1.0/search/$title');
     var response =
         await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
     if (response.statusCode == 200) {

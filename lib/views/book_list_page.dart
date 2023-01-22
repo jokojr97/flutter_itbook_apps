@@ -27,7 +27,7 @@ class _BookListPageState extends State<BookListPage> {
         title: const Center(child: Text("Book App")),
       ),
       body: Consumer<BookController>(
-        child: Center(
+        child: const Center(
           child: CircularProgressIndicator(),
         ),
         builder: (context, value, child) => Container(
